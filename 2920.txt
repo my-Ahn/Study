@@ -1,0 +1,71 @@
+#include <iostream>
+using namespace std;
+
+#include <iostream>
+
+int main()
+{
+	int arr[8];
+	int check[8];
+	int a = 0;
+	int b = 0;
+	int c = 0;
+	for (int i = 0; i < 8; i++)
+	{
+		cin >> arr[i];
+	}
+	for (int i = 0; i < 7; i++)
+	{
+		if (arr[i] < arr[i + 1])
+		{
+			check[i] = 1;
+		}
+		else if (arr[i] > arr[i + 1])
+		{
+			check[i] = 2;
+		}
+		else
+		{
+			// Do nothing
+		}
+	}
+	for (int i = 0; i < 7; i++)
+	{
+		for (int j = 0; j < 7; j++)
+		{
+			if (check[i] == 1 && check[j] == 2)
+			{
+				a = 1;
+			}
+			else if (check[i] == 1)
+			{
+				b = 2;
+			}
+			else if (check[i] == 2)
+			{
+				c = 3;
+			}
+			else
+			{
+				// Do nothing
+			}
+		}
+	}
+	if (b == 2 && c==3)
+	{
+		cout << "mixed" << endl;
+	}
+	else if (b == 2 && c==0)
+	{
+		cout << "ascending" << endl;
+	}
+	else if (c == 3 && b==0)
+	{
+		cout << "descending" << endl;
+	}
+}
+	
+	
+
+	
+
