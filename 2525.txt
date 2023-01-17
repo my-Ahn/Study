@@ -1,0 +1,21 @@
+#include <iostream>
+
+using namespace std;
+int main()
+{
+    int a, b, c;
+    cin >> a >> b;
+    cin >> c;
+    int num1, num2, num3;
+    num1 = (b + c) / 60;
+    num2 = (b + c) % 60;
+    num3 = (a + num1) / 24;    
+    if (num3 != 0)
+    {
+        cout << (a + num1) - (num3 * 24) << num2;
+    }
+    else
+    {
+        cout << (a + num1) << " " << num2;
+    }
+}
