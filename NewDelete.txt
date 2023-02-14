@@ -1,0 +1,18 @@
+#include <iostream>
+#include <string>
+
+char* MakeStrAdr(int len)
+{
+	char* str = new char[len];
+	return str;
+}
+
+int main()
+{
+	char* str = MakeStrAdr(20);
+	(void)memcpy(str, "I am so happy~", sizeof("I am so happy~"));
+	std::cout << str << std::endl;
+	delete[]str;
+	return 0;
+}
+	
