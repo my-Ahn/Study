@@ -1,0 +1,67 @@
+#include <iostream>
+#include <string>
+
+int main()
+{
+	//문자열
+	// A : 65, a : 97
+	// Z : 90, z : 122
+	const int maxSize = 1000000;
+	std::string str;
+	// 대문자와 소문자
+	std::cin >> str;
+	// A부터 Z까지 26개 있다.
+	int numOfAlpha[26] = { 0 }; // 0~ 25 : 0-A, Z:25. 90-25 = 65 97-97
+	
+	for (int i = 0; i < str.length(); i++)
+	{
+		if (str[i] < 91)
+		{
+			numOfAlpha[str[i] - 65]++;
+		}
+		else if(str[i]>96)
+		{
+			numOfAlpha[str[i] - 97]++;
+		}
+	}
+	// 각 알파벳별로(0 : a,A ~ 25 :z,Z) 문자 갯수가 들어감
+	int max = 0;
+	int check = 0;
+	std::string temp;
+	for (int i = 0; i < 26; i++)
+	{
+		if (max < numOfAlpha[i])
+		{
+			max = numOfAlpha[i]; // 알파벳이 최대 몇번나왔는지 구한다.
+			check = i;
+			// 중복 확인
+		}		
+	}
+	for (int i = 0; i < 26-check; i++)
+	{
+		if (max == numOfAlpha[i])
+		{
+			temp = "?";
+		}
+	}
+	for (int i = check + 1; i < 26; i++)
+	{
+		if(max == numOfAlpha[i])
+		{
+			temp = "?";
+		}
+	}
+	//중복이 아니면
+	if (temp.compare("?") != 0)
+	{
+		std::cout << (char)(check + 65);
+	}
+	else
+	{
+		std::cout << temp;
+	}
+
+	
+
+	
+}
